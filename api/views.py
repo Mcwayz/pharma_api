@@ -26,3 +26,19 @@ def apiOverview(request):
         'Authentication' : '/user-auth/',
     }
     return Response(api_urls)
+
+
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, BasicAuthentication])
+@permission_classes([IsAuthenticated])
+def get_categories(request):
+    drugs ={
+        '1. ' : 'Cannabis',
+        '2. ' : 'Inhalants',
+        '3. ' : 'Hallucinogens',       
+        '4. ' : 'CNS Stimulants',
+        '5. ' : 'Narcotic Analgesics',
+        '6. ' : 'Dissociative Anesthetics',
+        '7. ' : 'Central Nervous System (CNS) Depressants',
+    }
+    return Response(drugs)

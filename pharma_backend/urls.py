@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('api.urls')),
+    path('', include('api.urls')), # needs to be changed to frontend routing.
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
 ]
