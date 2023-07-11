@@ -8,28 +8,28 @@ from rest_framework.decorators import api_view
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.decorators import permission_classes
-from rest_framework.decorators import authentication_classes
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+
 
 
 # Create your views here.
 
 
 @api_view(['GET'])
-@authentication_classes([SessionAuthentication, BasicAuthentication])
+@authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 def apiOverview(request):
     api_urls ={
-        'Drugs' : '/drugs/',
-        'Drug Types' : '/drug-types/',
-        'Authentication' : '/user-auth/',
+        'Drugs' : 'api/drugs/',
+        'Drug Types' : 'api/drug-types/',
+        'Authentication' : 'api/user-auth/',
     }
     return Response(api_urls)
 
 
 @api_view(['GET'])
-@authentication_classes([SessionAuthentication, BasicAuthentication])
+@authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 def get_categories(request):
     drugs ={
