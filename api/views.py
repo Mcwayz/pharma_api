@@ -12,7 +12,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 
-
 # Create your views here.
 
 
