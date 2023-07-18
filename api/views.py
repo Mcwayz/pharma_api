@@ -16,8 +16,6 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 
 
 @api_view(['GET'])
-@authentication_classes([JWTAuthentication])
-@permission_classes([IsAuthenticated])
 def apiOverview(request):
     api_urls ={
         'Drugs' : 'api/drugs/',
