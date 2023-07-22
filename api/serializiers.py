@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from base.models import Client, Customer
+from base.models import Client, Customer, Transaction
 
 
 class ClientSerializier(serializers.ModelSerializer):
@@ -20,3 +20,9 @@ class CustomerSerializier(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ('customer_id', 'firstname', 'lastname', 'email','phone_number', 'nrc_number', 'profile_pic')
+        
+        
+class TransactionSerializier(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ('txn_id','payment_method','txn_amount', 'txn_date')
